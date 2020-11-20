@@ -1,23 +1,23 @@
 === WP Admin Bar Effect ===
 Contributors: 23r9i0 
 Donate link:
-Tags: Admin bar, effect
+Tags: Admin, Admin bar, Effect, Customize menu, menu, Toolbar
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 1.0
+Stable tag: 2.0
 License: GPL/MIT
 
 Add effect to admin bar for show & hide with mouse hover
 
 == Description ==
 
+Hide or show the desktop bar with a single effect and add a link to site inside sidebar (optional).
+In addition you can control the speed, sensitivity to active the effect.
+
 In Spanish:
 Oculta o muestra la barra del escritorio con un sencillo efecto y a&ntilde;ade un enlace a su sitio en el panel lateral(opcional).
 Aparte puede controlar la velocidad, sensibilidad para activar el efecto.
 
-In English:
-Hide or show the desktop bar with a single effect and add a link to site inside sidebar (optional).
-In addition you can control the speed, sensitivity to active the effect.
 
 
 == Installation ==
@@ -28,11 +28,17 @@ In addition you can control the speed, sensitivity to active the effect.
 
 == Frequently Asked Questions ==
 
+= Currently there is no FAQ =
 
 == Changelog ==
-1.0
-initial release
+= 2.0 =
+* - Add custom icon with media uploader
+* - Use full API Wordpress and delete code unnecessary
+= 1.0 =
+* initial release
 
 == Upgrade Notice ==
 
 == Screenshots ==
+
+1. screenshot
