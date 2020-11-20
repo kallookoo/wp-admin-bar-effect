@@ -3,7 +3,7 @@
  * Plugin Name: WP Admin Bar Effect (wabe)
  * Plugin URI: http://wordpress.org/extend/plugins/wp-admin-bar-effect/
  * Description: Add effect slideDown to desktop top bar
- * Version: 2.5.2
+ * Version: 2.5.3
  * Author: Sergio P.A. ( 23r9i0 )
  * Author URI: http://dsergio.com/
  * License: GPL2
@@ -25,9 +25,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) or exit;
 
-add_action( 'plugins_loaded', array( 'WP_Admin_Bar_Effect', 'get_instance' ), 10 );
+add_action( 'plugins_loaded', array( 'WP_Admin_Bar_Effect', 'get_instance' ) );
 register_activation_hook( __FILE__, array( 'WP_Admin_Bar_Effect', 'activation' ) );
 register_deactivation_hook( __FILE__, array( 'WP_Admin_Bar_Effect', 'deactivation' ) );
 
@@ -35,7 +35,7 @@ class WP_Admin_Bar_Effect {
 
 	private static $instance = null;
 
-	private $wabe_version = '2.5.2';
+	private $wabe_version = '2.5.3';
 
 	private $wabe_options = array();
 
@@ -95,6 +95,25 @@ class WP_Admin_Bar_Effect {
 
 		// Languages
 		load_plugin_textdomain( 'wabelang', false, dirname( plugin_basename( __FILE__ ) ) . '/include/languages/' );
+
+		if ( version_compare( PHP_VERSION, '5.4.0', '<') ) {
+			add_filter( 'site_transient_update_plugins', array( $this, 'delete_plugin_update' ) );
+			add_filter( 'plugin_row_meta', array( $this, 'update_info_plugin' ), 10, 2 );
+		}
+	}
+
+	public function delete_plugin_update( $data ) {
+		unset( $data->response[ plugin_basename( __FILE__ ) ] );
+		return $data;
+	}
+
+	public function update_info_plugin( $plugin_meta, $plugin_file ) {
+		if ( plugin_basename( __FILE__ ) !== $plugin_file )
+			return $plugin_meta;
+
+			$plugin_meta[] = sprintf( '<strong>%s</strong>', __( 'Your PHP Version is not compatible with future updates, Upgrade to 5.4 or later', 'wabelang' ) );
+
+			return $plugin_meta;
 	}
 
 	public function register_settings() {
