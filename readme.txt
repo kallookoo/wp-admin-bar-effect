@@ -3,15 +3,15 @@ Contributors: 23r9i0
 Donate link:
 Tags: Admin, Admin bar, Effect, Customize menu, menu, Toolbar
 Requires at least: 3.8
-Tested up to: 4.2.2
-Stable tag: 2.5.3
+Tested up to: 4.8
+Stable tag: 2.5.4
 License: GPL2
 
 Add effect to admin bar for show & hide with mouse hover
 
 == Description ==
 
-Hide or show the desktop bar with a single effect and add a link to site inside sidebar (optional).
+Hide or show the admin bar with a single effect and add a link to site inside sidebar (optional).
 In addition you can control the speed, sensitivity to active the effect.
 
 == Installation ==
@@ -22,6 +22,8 @@ In addition you can control the speed, sensitivity to active the effect.
 
 
 == Changelog ==
+= 2.5.4 =
+* Remove Disabled plugin update and checking plugin
 = 2.5.3 =
 * Add Disabled plugin update on PHP 5.3, last updated Require 5.4 or later
 * Restore old version
